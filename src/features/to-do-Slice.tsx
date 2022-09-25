@@ -12,14 +12,6 @@ export interface toDo {
   edditId: number;
 }
 
-const getLocalStorage = () => {
-  let todos: any = localStorage.getItem("todos");
-  if (todos) {
-    return JSON.parse(localStorage.getItem("todos") || "[]");
-  }
-  return [];
-};
-
 const initialState: toDo = {
   todos: [],
   completedToDos: [],
@@ -28,23 +20,6 @@ const initialState: toDo = {
   isEdditing: false,
   edditId: 0,
 };
-
-// setting local storage
-// useEffect(() => {
-//   localStorage.setItem("todos", JSON.stringify(initialState.todos));
-//   localStorage.setItem(
-//     "completedToDos",
-//     JSON.stringify(initialState.completedToDos)
-//   );
-//   localStorage.setItem(
-//     "trashedToDos",
-//     JSON.stringify(initialState.trashedToDos)
-//   );
-// }, [
-//   initialState.todos,
-//   initialState.completedToDos,
-//   initialState.trashedToDos,
-// ]);
 
 const toDoSlice = createSlice({
   name: "toDo",
